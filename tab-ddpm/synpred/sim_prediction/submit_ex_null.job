@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for p in 7 10 20 50; do
+	sbatch --export=p=$p ex_null.job
+done

@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name syn
+#SBATCH --time 24:00:00
+#SBATCH --mail-type=ALL -p scavenge_gpu,gpu --mem-per-cpu 10g --cpus-per-task 1 --gpus 1
+#SBATCH --output syn-%A_%2a-%N.out
+
+module load miniconda
+conda activate tabddpm
+#python mytrain_null.py 5000 5k2 1000
+#python mysynboost_null.py 5000 5k2 1000
+## more steps in training
+#python mytrain_null.py 5000 5k100w10w_lr3e-3 10 0.8
+#python mysynboost_null.py 5000 5k100w10w_lr3e-3 10 0.8
+p=7
+#python mytrain_null_combine.py 5000 5k5w100w_lr1e-3_lr3e-6 $p 0.2 1e-3 2023 1000000
+python mysynboost_null_combine.py 5000 5k5w1k_lr1e-3_lr3e-6 $p 0.2 1e-3 2023
