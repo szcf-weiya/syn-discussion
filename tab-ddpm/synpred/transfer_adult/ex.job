@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH --job-name syn
+#SBATCH --time 24:00:00
+#SBATCH --mail-type=ALL -p scavenge_gpu,gpu --mem-per-cpu 10g --cpus-per-task 1 --gpus 1
+#SBATCH --output syn-%A_%2a-%N.out
+
+module load miniconda
+conda activate tabddpm
+python synboost_wcatboost.py
