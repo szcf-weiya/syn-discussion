@@ -45,5 +45,5 @@ ax.set_title(
 ax.legend(fontsize = 20)
 plt.xticks(fontsize=18)
 plt.yticks(fontsize=18)
-plt.savefig(f"finetuned-effect-rmse-5k-combined.pdf")
+plt.savefig(f"finetuned-effect-rmse-5k-combined.pdf", bbox_inches='tight')
 #plt.show()

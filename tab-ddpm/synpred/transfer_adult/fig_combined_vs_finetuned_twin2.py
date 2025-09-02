@@ -34,4 +34,4 @@ ax.set_title(
 )
 plt.xticks(fontsize=18)
 plt.yticks(fontsize=18)
-plt.savefig("combined_vs_finetuned-adult-female-twin2.pdf")
+plt.savefig("combined_vs_finetuned-adult-female-twin2.pdf", bbox_inches='tight')

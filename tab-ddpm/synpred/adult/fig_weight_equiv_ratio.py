@@ -9,13 +9,13 @@ ratio = 10
 scores1 = pickle.load(open("scores_ratio10_fakeweight0.1.pkl", "rb"))
 weights1 = pickle.load(open("weights_ratio10_fakeweight0.1.pkl", "rb"))
 
-# ratio = 2
-# scores1 = pickle.load(open("scores_ratio2_fakeweight0.1.pkl", "rb"))
-# weights1 = pickle.load(open("weights_ratio2_fakeweight0.1.pkl", "rb"))
+ratio = 2
+scores1 = pickle.load(open("scores_ratio2_fakeweight0.1.pkl", "rb"))
+weights1 = pickle.load(open("weights_ratio2_fakeweight0.1.pkl", "rb"))
 
-# ratio = 5
-# scores1 = pickle.load(open("scores_ratio5_fakeweight0.1.pkl", "rb"))
-# weights1 = pickle.load(open("weights_ratio5_fakeweight0.1.pkl", "rb"))
+ratio = 5
+scores1 = pickle.load(open("scores_ratio5_fakeweight0.1.pkl", "rb"))
+weights1 = pickle.load(open("weights_ratio5_fakeweight0.1.pkl", "rb"))
 
 fig, ax = plt.subplots(figsize=(14, 8))
 ax.plot(ratios[1:], 1 - np.array(scores_combined[1:]), marker="^", label="Syn-Boost")
@@ -31,4 +31,4 @@ ax.set_title(f"Adult: combine raw and synthetic",
 ax.legend(fontsize=20)
 plt.xticks(fontsize=18)
 plt.yticks(fontsize=18)
-plt.savefig(f"weights_ratio{ratio}_equiv_ratio.pdf")
+plt.savefig(f"weights_ratio{ratio}_equiv_ratio.pdf", bbox_inches='tight')
