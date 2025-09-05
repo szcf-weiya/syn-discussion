@@ -15,23 +15,23 @@ tuned_value = 1 - np.array(result_female["scores"]).max()
 combined_value = 1 - np.array(result_female_combined["scores"]).max()
 
 fig, ax = plt.subplots(figsize=(14, 8))
-ax.plot(result_female["rhos"], 1 - np.array(result_female["scores"]), label = "finetuned", marker = "s")
-ax.plot(result_female_combined["rhos"], 1 - np.array(result_female_combined["scores"]), label = "combined", marker = "^")
+ax.plot(result_female["rhos"], 1 - np.array(result_female["scores"]), label = "finetuned", marker = "s", ms = 10)
+ax.plot(result_female_combined["rhos"], 1 - np.array(result_female_combined["scores"]), label = "combined", marker = "^", ms = 10)
 ax.axhline(tuned_value, linestyle="--",lw = 4, color="C0", label = "best finetuned")
 ax.axhline(combined_value, linestyle="--", color="C1", label = "best combined")
 ax.axhline(1 - score_catboost, linestyle=":", color="C2", label = "CatBoost")
 ax.axhline(1 - score_catboost_combined, linestyle=":", lw=4, color="C2", label = "CatBoost (Male + Female)")
 # ax.axhline(1 - score_fnn, linestyle="-.", color="C4", label = "FNN")
-ax.legend(fontsize = 20)
-ax.set_xlabel("synthetic to raw ratio", fontsize=22)
-ax.set_ylabel("misclassification error", fontsize=22)
+ax.legend(fontsize = 22)
+ax.set_xlabel("synthetic to raw ratio", fontsize=26)
+ax.set_ylabel("misclassification error", fontsize=26)
 ax.set_title(
-    "Syn-Boost (Adult-Female, adult_female_3000_twin_2)",
+    "Syn-Boost (adult_female_3000_twin_2)",
     weight="bold",
-    fontsize=20,
+    fontsize=30,
     loc="left",
     y=1.03,
 )
-plt.xticks(fontsize=18)
-plt.yticks(fontsize=18)
+plt.xticks(fontsize=26)
+plt.yticks(fontsize=26)
 plt.savefig("combined_vs_finetuned-adult-female-twin2.pdf", bbox_inches='tight')

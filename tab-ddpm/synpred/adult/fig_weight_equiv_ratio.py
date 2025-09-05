@@ -17,13 +17,13 @@ ratio = 5
 scores1 = pickle.load(open("scores_ratio5_fakeweight0.1.pkl", "rb"))
 weights1 = pickle.load(open("weights_ratio5_fakeweight0.1.pkl", "rb"))
 
-fig, ax = plt.subplots(figsize=(14, 8))
-ax.plot(ratios[1:], 1 - np.array(scores_combined[1:]), marker="^", label="Syn-Boost")
-ax.plot(ratio * weights1, 1 - np.array(scores1), marker="*", label="Syn-Boost (weighted CatBoost)")
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(ratios[1:], 1 - np.array(scores_combined[1:]), marker="^", label="Syn-Boost", ms = 10)
+ax.plot(ratio * weights1, 1 - np.array(scores1), marker="*", label="Syn-Boost (weighted CatBoost)", ms = 10)
 ax.axhline(1 - scores_combined[0], linestyle="--", label = "CatBoost")
 ax.set_xlabel("equivalent synthetic to raw ratio", fontsize=22)
 ax.set_ylabel("misclassification error", fontsize=22)
-ax.set_title(f"Adult: combine raw and synthetic", 
+ax.set_title(f"Adult", 
     weight="bold",
     fontsize=24,
     loc="left",
